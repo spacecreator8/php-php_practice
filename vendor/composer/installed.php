@@ -5,18 +5,18 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '8cb64e3cc28c12c9240e323037a87773e8884d9f',
-        'name' => 'spacecreator/php-php_practice',
+        'reference' => '785c0ef0892c486a93b7330fe4f72bb79fee9206',
+        'name' => 'spacecreator8/php-php_practice',
         'dev' => true,
     ),
     'versions' => array(
-        'spacecreator/php-php_practice' => array(
+        'spacecreator8/php-php_practice' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '8cb64e3cc28c12c9240e323037a87773e8884d9f',
+            'reference' => '785c0ef0892c486a93b7330fe4f72bb79fee9206',
             'dev_requirement' => false,
         ),
     ),
