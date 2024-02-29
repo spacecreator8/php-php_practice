@@ -1,0 +1,22 @@
+{
+    "name": "spacecreator/php_practice",
+    "description": "First PHP framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "spacecreator8",
+            "email": "spcc888@ya.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    	"php" : "^7.4 | ^8.0"
+    },
+    "autoload":{
+    	"psr-4":{
+    		"Src\\":"core/Src/",
+    		"": "app/"
+    	}
+    }
+}
