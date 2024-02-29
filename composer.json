@@ -18,5 +18,19 @@
     		"Src\\":"core/Src/",
     		"": "app/"
     	}
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.org"
+        }
+    ],
+    "config": {
+        "packagist-oauth": {
+            "github.com": {
+                "username": "spacecreator8",
+                "token": "0e7dab0e399c79e53cfa"
+            }
+        }
     }
 }
