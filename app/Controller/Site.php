@@ -17,6 +17,11 @@ class Site
        $posts = Post::where('id', $request->id)->get();
        return (new View())->render('site.post', ['posts' => $posts]);
     }
+
+    public function test(){
+        $message = "Это дело работает!";
+        return (new View())->render('site.test', ['message'=> $message]);
+    }
     
 
    public function hello(): string

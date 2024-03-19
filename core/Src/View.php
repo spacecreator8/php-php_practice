@@ -9,7 +9,7 @@ class View
    private string $view = '';
    private array $data = [];
    private string $root = '';
-   private string $layout = '/layouts/main.php';
+   private string $layout = '/layouts/my.php';
 
    public function __construct(string $view = '', array $data = [])
    {
