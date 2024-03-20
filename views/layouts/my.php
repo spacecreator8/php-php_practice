@@ -11,17 +11,25 @@
     <header>Ресурс учета площади помещений СибГМУ</header>
         <div class="action_div">
             <nav>
-                <a href="<?= app()->route->getUrl('/hello') ?>">Добавить строение</a>
-                <a href="<?= app()->route->getUrl('/hello') ?>">Добавить помещение</a>
-                <a href="<?= app()->route->getUrl('/hello') ?>">Добавить тип помещения</a>
-                <a href="<?= app()->route->getUrl('/hello') ?>">Список помещений</a>
-                <a href="<?= app()->route->getUrl('/hello') ?>">Подсчет общей площади</a>
-                <a href="<?= app()->route->getUrl('/hello') ?>">Подсчет посадочных мест</a>
-
-                <a href="<?= app()->route->getUrl('/hello') ?>">Создать пользователя</a>
-
-                <a href="<?= app()->route->getUrl('/logout') ?>">Выход</a>
-                
+                <?php
+                if (!app()->auth::check()):
+                    ?>
+                    <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
+                    <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
+                <?php
+                else:
+                    ?>
+                    <a href="<?= app()->route->getUrl('/hello') ?>">Добавить строение</a>
+                    <a href="<?= app()->route->getUrl('/hello') ?>">Добавить помещение</a>
+                    <a href="<?= app()->route->getUrl('/hello') ?>">Добавить тип помещения</a>
+                    <a href="<?= app()->route->getUrl('/hello') ?>">Список помещений</a>
+                    <a href="<?= app()->route->getUrl('/hello') ?>">Подсчет общей площади</a>
+                    <a href="<?= app()->route->getUrl('/hello') ?>">Подсчет посадочных мест</a>
+                    <a href="<?= app()->route->getUrl('/hello') ?>">Создать пользователя</a>
+                    <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
+                <?php
+                endif;
+                ?>    
             </nav>
 
             <main>
@@ -81,6 +89,58 @@
                     width:81vw;
                     border:1px solid black;
                     background-color: #F4F4F4;
+                }
+                .autorisation_form{
+                    width: 600px;
+                    height:300px;
+
+                    margin:100px auto;
+
+                    position:relative;
+                    display:flex;
+                    flex-direction:column;
+                    justify-content: center;
+                    align-items: center;
+
+                    background-color: white;
+                    border-radius: 20px;
+                    
+
+                }
+                .autorisation_form > h2{
+                    text-align: center;
+                    position:relative;
+                    top:-60px;
+
+                    font-family: Arial;
+                    font-weight: 900;
+                    color:#666666;
+                }
+                .login_auth,
+                .psw_auth{
+                    padding:6px;
+                    width:300px;
+                    border-radius:5px;
+                    border:1px solid #666666;
+                }
+                .autorisation_form > label{
+                    font-family: Arial;
+                    font-weight: 900;
+                    color:#C93239;
+                }
+                .autorisation_form > button {
+                    width:100px;
+                    height:40px;
+                    position:relative;
+                    bottom:-30px;
+
+                    color:#F4F4F4;
+                    font-family: Arial;
+                    font-weight: 900;
+                    background-color: #C93239;
+
+                    border:0px solid black;
+                    border-radius: 5px;
                 }
             </style>
         </div>

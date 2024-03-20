@@ -25,6 +25,13 @@ class User extends Model implements IdentityInterface
            $user->save();
        });
    }
+   public static function isAdmin(){
+       if(self::findIdentity(self::getId())->is_admin == 1){
+          return true;
+       }else{
+          return false;
+       }
+   }
 
    //Выборка пользователя по первичному ключу
    public function findIdentity(int $id)
