@@ -1,5 +1,7 @@
-.navigation{
+*{
     background: rgb(97, 238, 238);
+    font-size: 28px;
+    color:blueviolet;
 }
 h2{
     color:red;

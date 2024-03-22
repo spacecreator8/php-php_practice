@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Работаем</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../views/css/main.css">
+    <!-- <link rel="stylesheet" href="/opt/lampp/htdocs/php_practice/views/css/main.css"> -->
 </head>
 <body>
     <div class="main_div">
@@ -44,7 +45,6 @@
                 header{
                     height:10vw;
                     max-height:110px;
-                    border:1px solid black;
 
                     color:#666666;
                     font-weight: 900;
@@ -63,7 +63,6 @@
                     width:20vw;
                     max-width:250px;
 
-                    border:1px solid black;
                     background-color: #EEEEEE;
                     position:sticky;
                     top:110px;
@@ -87,8 +86,8 @@
                 main{
                     min-height:83vh;
                     width:81vw;
-                    border:1px solid black;
                     background-color: #F4F4F4;
+                    padding: 40px;
                 }
                 .autorisation_form{
                     width: 600px;
@@ -141,6 +140,52 @@
 
                     border:0px solid black;
                     border-radius: 5px;
+                }
+                .red_text{
+                    color:#C93239;
+                    font-family: Arial;
+                    font-weight:900;
+                    font-size:24px;
+                    margin-bottom:40px;
+                }
+                .grey_text{
+                    color:#666666;
+                    font-family: Arial;
+                    font-weight:900;
+                    font-size:16px;
+
+                    position:relative;
+                    
+                }
+                .grey_text > input {
+                    width:299px;
+                    height:30px;
+                    border-radius: 5px;
+                    border:1px solid #666666;
+                    margin:15px 0;
+                    padding:0 10px;
+                }
+                .grey_text > input[type="radio"]{
+                    width:30px;
+                    height:30px;
+                    text-align: center;
+                    margin-left:20px;
+
+                }
+                .grey_text > span{
+                    position:relative;
+                    bottom:10px;
+                    left:5px;
+                }
+                .red_button{
+                    padding:10px;
+                    background-color: #C93239;
+                    color:#F4F4F4;
+                    font-family: Arial;
+                    font-weight:900;
+                    font-size:14px;
+                    border-radius:5px;
+                    border:0px solid transparent;
                 }
             </style>
         </div>
