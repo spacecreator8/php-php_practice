@@ -4,6 +4,7 @@ namespace Controller;
 
 use Model\User;
 use Model\Post;
+use Model\Building;
 use Src\View;
 use Src\Request;
 use Src\Auth\Auth;
@@ -18,9 +19,9 @@ class Site
        return (new View())->render('site.post', ['posts' => $posts]);
     }
 
-    public function test(){
-        $message = "Это дело работает!";
-        return (new View())->render('site.test', ['message'=> $message]);
+    public function add(){
+        $posts  = Building::all();
+        return (new View())->render('site.test');
     }
     
 

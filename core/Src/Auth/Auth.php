@@ -50,6 +50,9 @@ class Auth
        }
        return false;
    }
+   public static function is_admin(){
+       return self::user()->is_admin;
+   }
 
    //Выход текущего пользователя
    public static function logout(): bool

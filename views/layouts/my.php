@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Работаем</title>
-    <link rel="stylesheet" href="../views/css/main.css">
+    <link rel="stylesheet" href="views/css/main.css">
     <!-- <link rel="stylesheet" href="/opt/lampp/htdocs/php_practice/views/css/main.css"> -->
 </head>
 <body>
@@ -20,13 +20,19 @@
                 <?php
                 else:
                     ?>
-                    <a href="<?= app()->route->getUrl('/hello') ?>">Добавить строение</a>
-                    <a href="<?= app()->route->getUrl('/hello') ?>">Добавить помещение</a>
-                    <a href="<?= app()->route->getUrl('/hello') ?>">Добавить тип помещения</a>
+                    <a href="<?= app()->route->getUrl('/add_build') ?>">Добавить строение</a>
+                    <a href="<?= app()->route->getUrl('/add_room') ?>">Добавить помещение</a>
+                    <a href="<?= app()->route->getUrl('/add_type') ?>">Добавить тип помещения</a>
                     <a href="<?= app()->route->getUrl('/hello') ?>">Список помещений</a>
-                    <a href="<?= app()->route->getUrl('/hello') ?>">Подсчет общей площади</a>
+                    <a href="<?= app()->route->getUrl('/overall_a') ?>">Подсчет общей площади</a>
                     <a href="<?= app()->route->getUrl('/hello') ?>">Подсчет посадочных мест</a>
-                    <a href="<?= app()->route->getUrl('/hello') ?>">Создать пользователя</a>
+                <?php
+                if(app()->auth::is_admin()){
+                    ?>
+                    <a href="<?= app()->route->getUrl('/signup') ?>">Создать пользователя</a>
+                    <?php
+                }   
+                ?>
                     <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
                 <?php
                 endif;
@@ -179,6 +185,7 @@
                 }
                 .red_button{
                     padding:10px;
+                    margin:0 0 40px;
                     background-color: #C93239;
                     color:#F4F4F4;
                     font-family: Arial;
@@ -186,6 +193,9 @@
                     font-size:14px;
                     border-radius:5px;
                     border:0px solid transparent;
+                }
+                .plus_margin{
+                    margin:20px 0;
                 }
             </style>
         </div>

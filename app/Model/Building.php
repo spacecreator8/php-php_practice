@@ -5,9 +5,16 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Building extends Model
 {
    use HasFactory;
    public $timestamps = false;
    protected $table = "Building";
+   protected $fillable = [
+      'adress',
+   ];
+
+   public function rooms(){
+      return $this->hasMany(Rooms::class, 'rooms_id', 'id');
+   }
 }
