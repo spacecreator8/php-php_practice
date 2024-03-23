@@ -23,9 +23,9 @@
                     <a href="<?= app()->route->getUrl('/add_build') ?>">Добавить строение</a>
                     <a href="<?= app()->route->getUrl('/add_room') ?>">Добавить помещение</a>
                     <a href="<?= app()->route->getUrl('/add_type') ?>">Добавить тип помещения</a>
-                    <a href="<?= app()->route->getUrl('/hello') ?>">Список помещений</a>
+                    <a href="<?= app()->route->getUrl('/getter') ?>">Список помещений</a>
                     <a href="<?= app()->route->getUrl('/overall_a') ?>">Подсчет общей площади</a>
-                    <a href="<?= app()->route->getUrl('/hello') ?>">Подсчет посадочных мест</a>
+                    <a href="<?= app()->route->getUrl('/overall_p') ?>">Подсчет посадочных мест</a>
                 <?php
                 if(app()->auth::is_admin()){
                     ?>
@@ -177,6 +177,15 @@
                     text-align: center;
                     margin-left:20px;
 
+                }
+                .grey_text > select {
+                    width:299px;
+                    height:30px;
+                    border-radius: 5px;
+                    border:1px solid #666666;
+                    margin:15px 0;
+                    padding:0 10px;
+                    background-color:white;
                 }
                 .grey_text > span{
                     position:relative;

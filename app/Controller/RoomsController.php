@@ -11,6 +11,18 @@ use Src\Request;
 use Src\Auth\Auth;
 
 class RoomsController {
+
+    public function overallPlaces(Request $request){
+        $builds = Building::all();
+        return (new View())->render('rooms.overall_places', ['builds'=>$builds]);
+    }
+
+    public function getter(Request $request){
+        $builds = Building::all();
+        return (new View())->render('rooms.getter', ['builds'=>$builds]);
+        
+    }
+
     public function add(Request $request){
         if($request->method =="POST" && Rooms::create($request->all())){
             $rooms = Rooms::all();

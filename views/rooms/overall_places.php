@@ -7,21 +7,20 @@
     ?> 
     <input type="submit" class='red_button plus_margin'>  
 </form>
-
 <?php
-    use Model\Rooms;
+use Model\Rooms;
 
-    $overall=0;
-    $count = count($_POST);
     if($_POST){
-        foreach($_POST as $key => $value){
-            $notes = Rooms::where('build', $key)->get();
-            foreach($notes as $note){
-                $overall += $note->area;
-            }
-        } 
-        echo '<pre>';
-        echo "<p class='red_text'>Общая площадь : $overall м^2 (кол-во зданий - $count )</p>";
-        echo '</pre>';   
+        $overall=0;
+        $count = count($_POST);
+        if($_POST){
+            foreach($_POST as $key => $value){
+                $notes = Rooms::where('build', $key)->get();
+                foreach($notes as $note){
+                    $overall += $note->places;
+                }
+            }    
+        }
+        echo "<p class='red_text'>В общем мест : $overall (кол-во зданий - $count )</p>";
     }
-
+        
