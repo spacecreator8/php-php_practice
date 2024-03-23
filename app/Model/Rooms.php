@@ -15,6 +15,7 @@ class Rooms extends Model
       'type',
       'area',
       'build',
+      'places',
    ];
 
    public function type(){

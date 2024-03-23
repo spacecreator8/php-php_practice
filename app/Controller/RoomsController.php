@@ -13,21 +13,31 @@ use Src\Auth\Auth;
 class RoomsController {
     public function add(Request $request){
         if($request->method =="POST" && Rooms::create($request->all())){
-            $posts = Rooms::all();
-            return (new View())->render('rooms.add', ['posts'=>$posts]);
+            $rooms = Rooms::all();
+            $buildings = Building::all();
+            $types=Types::all();
+            return (new View())->render('rooms.add', ['rooms'=>$rooms,
+                'buildings'=>$buildings,
+                'types'=>$types]);
         }else{
-            $posts = Rooms::all();
-            return (new View())->render('rooms.add', ['posts'=>$posts]);
+            $rooms = Rooms::all();
+            $buildings = Building::all();
+            $types=Types::all();
+            return (new View())->render('rooms.add', ['rooms'=>$rooms,
+                'buildings'=>$buildings,
+                'types'=>$types]);
         }
     }
 
     public function overallArea(Request $request){
         if($request->method =="POST"){
-            $posts = Building::all();
-            return (new View())->render('rooms.overall_area', ['posts'=>$posts, 'data'=>$_POST]);
+            $builds = Building::all();
+            $rooms = Rooms::all();
+            return (new View())->render('rooms.overall_area', ['rooms'=>$rooms ,'builds'=>$builds, 'data'=>$_POST]);
         }else{
-            $posts = Building::all();
-            return (new View())->render('rooms.overall_area', ['posts'=>$posts]);
+            $builds = Building::all();
+            $rooms = Rooms::all();
+            return (new View())->render('rooms.overall_area', ['rooms'=>$rooms , 'builds'=>$builds]);
         }
     }
 }
