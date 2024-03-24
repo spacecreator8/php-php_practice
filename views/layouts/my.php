@@ -47,6 +47,13 @@
                     margin:0;
                     padding:0;
                     box-sizing: border-box;
+                    font-family: Arial;
+                }
+                h2,
+                h3,
+                h4,
+                li{
+                    color:#666666;
                 }
                 header{
                     height:10vw;
