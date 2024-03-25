@@ -1,6 +1,7 @@
 <h2 class="red_text">Выдача помещений строения</h2>
 
 <form method="post">
+<input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/><br>
     <label class="grey_text">В каком здании находится<br><br><select name="build" required>
             <?php
             foreach($builds as $build){

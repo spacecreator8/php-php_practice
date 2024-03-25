@@ -1,4 +1,5 @@
 <form method="post">
+<input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/><br>
     <h2 class="red_text">Выберите строения для подсчета площади</h2>
     <?php
         foreach($builds as $build){

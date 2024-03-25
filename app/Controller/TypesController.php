@@ -10,14 +10,26 @@ use Src\View;
 use Src\Request;
 use Src\Auth\Auth;
 
+use Src\Validator\Validator;
+
 class TypesController{
     public function add(Request $request){
-        if($request->method =="POST" && Types::create($request->all())){
-            $posts = Types::all();
-            return (new View())->render('types.add', ['posts'=>$posts]);
-        }else{
-            $posts = Types::all();
-            return (new View())->render('types.add', ['posts'=>$posts]);
+        $posts = Types::all();
+
+        if($request->method =="POST"){
+            $validator = new Validator($request->all(), [
+                'kind' => ['required'],
+                ],[
+                'required' => 'Поле :field пусто',
+            ]);
+            if($validator->fails()){
+                return (new View())->render('types.add', ['posts'=>$posts,
+                    'message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }else{
+                Types::create($request->all());
+            }
         }
+
+        return (new View())->render('types.add', ['posts'=>$posts]);
     }
 }

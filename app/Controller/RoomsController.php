@@ -10,6 +10,8 @@ use Src\View;
 use Src\Request;
 use Src\Auth\Auth;
 
+use Src\Validator\Validator;
+
 class RoomsController {
 
     public function overallPlaces(Request $request){
@@ -24,21 +26,33 @@ class RoomsController {
     }
 
     public function add(Request $request){
-        if($request->method =="POST" && Rooms::create($request->all())){
-            $rooms = Rooms::all();
-            $buildings = Building::all();
-            $types=Types::all();
-            return (new View())->render('rooms.add', ['rooms'=>$rooms,
+        $rooms = Rooms::all();
+        $buildings = Building::all();
+        $types=Types::all();
+
+        if($request->method =="POST"){ 
+            $validator = new Validator($request->all(), [
+                'name' => ['required'],
+                'area' => ['required', 'number'],
+                'places' => ['required', 'number']
+            ], [
+                'required' => 'Поле :field пусто',
+                'number' => 'Поле :field принимает только целые числа'
+            ]);
+            if($validator->fails()){
+                return (new View())->render('rooms.add', ['rooms'=>$rooms,
                 'buildings'=>$buildings,
-                'types'=>$types]);
-        }else{
-            $rooms = Rooms::all();
-            $buildings = Building::all();
-            $types=Types::all();
-            return (new View())->render('rooms.add', ['rooms'=>$rooms,
-                'buildings'=>$buildings,
-                'types'=>$types]);
+                'types'=>$types,
+                'message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }else{
+                Rooms::create($request->all());
+            }
         }
+        
+        return (new View())->render('rooms.add', ['rooms'=>$rooms,
+            'buildings'=>$buildings,
+            'types'=>$types]);
+        
     }
 
     public function overallArea(Request $request){
