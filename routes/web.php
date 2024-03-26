@@ -16,3 +16,4 @@ Route::add(['GET', 'POST'], '/add_room', [Controller\RoomsController::class, 'ad
 Route::add(['GET', 'POST'], '/overall_a', [Controller\RoomsController::class, 'overallArea']);
 Route::add(['GET', 'POST'], '/getter', [Controller\RoomsController::class, 'getter']);
 Route::add(['GET', 'POST'], '/overall_p', [Controller\RoomsController::class, 'overallPlaces']);
+Route::add(['GET', 'POST'], '/fimg', [Controller\BuildingController::class, 'findImage']);

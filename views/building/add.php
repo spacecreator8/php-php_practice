@@ -1,4 +1,4 @@
-<form method="post">
+<form method="post"  enctype="multipart/form-data">
     <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/><br>
     <div class="red_text">Добавление здания</div><br>
     <?php 
@@ -7,7 +7,8 @@
     }
     ?>
     <label class="grey_text">Введите адрес <br><input type="text" name="adress" placeholder="Введите адрес"></label><br>
-    <input type="submit" class="red_button"><br>
+    <label class="grey_text2">Фото<br><input type="file" name="photo"></label><br>
+    <input type="submit" class="red_button plus_margin"><br>
 </form>
 
 
@@ -17,3 +18,6 @@
         echo "<li><div>". $post->adress . "</div></li>";
     }
     echo "</ol>";
+    echo "<br><pre>";
+    print_r($_FILES);
+    echo"</pre>";

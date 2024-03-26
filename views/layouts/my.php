@@ -26,6 +26,7 @@
                     <a href="<?= app()->route->getUrl('/getter') ?>">Список помещений</a>
                     <a href="<?= app()->route->getUrl('/overall_a') ?>">Подсчет общей площади</a>
                     <a href="<?= app()->route->getUrl('/overall_p') ?>">Подсчет посадочных мест</a>
+                    <a href="<?= app()->route->getUrl('/fimg') ?>">Изображения</a>
                 <?php
                 if(app()->auth::is_admin()){
                     ?>
@@ -169,6 +170,14 @@
 
                     position:relative;
                     
+                }
+                .grey_text2{
+                    color:#666666;
+                    font-family: Arial;
+                    font-weight:900;
+                    font-size:16px;
+
+                    position:relative;
                 }
                 .grey_text > input {
                     width:299px;

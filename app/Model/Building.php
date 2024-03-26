@@ -12,6 +12,7 @@ class Building extends Model
    protected $table = "Building";
    protected $fillable = [
       'adress',
+      'photo',
    ];
 
    public function rooms(){
