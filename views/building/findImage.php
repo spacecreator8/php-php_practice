@@ -9,7 +9,7 @@
 
     <?php
     if(isset($image)){
-        ?><img src="<?= $image ?>" alt="Building Image"><br><br><br><?php
+        ?><img src="images/<?= $image ?>" alt="Building Image"><br><br><br><?php
 
     }
     ?>
