@@ -13,11 +13,11 @@
 
 
 <?php
-    echo "<h2>Список зданий</h2><ol>";
-    foreach($posts as $post){
-        echo "<li><div>". $post->adress . "</div></li>";
-    }
-    echo "</ol>";
-    echo "<br><pre>";
-    print_r($_FILES);
-    echo"</pre>";
+    // echo "<h2>Список зданий</h2><ol>";
+    // foreach($posts as $post){
+    //     echo "<li><div>". $post->adress . "</div></li>";
+    // }
+    // echo "</ol>";
+    // echo "<br><pre>";
+    // print_r($_FILES);
+    // echo"</pre>";

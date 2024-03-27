@@ -10,15 +10,11 @@
 </form>
 
 <?php
-    echo "<pre>";
-    $var = (mb_strtolower($_POST['fimg']));
-    echo $var;
-    echo "</pre>";
+
 
     if(isset($objects)){
         foreach($objects as $index=>$obj){
             echo "<div class='red_text'>$obj->adress</div>";
-            echo "<div class='red_text'>$obj->id</div>";
             ?><img src="images/<?= $images[$index] ?>" alt="Building Image"><br><br><br><?php
         }
     }

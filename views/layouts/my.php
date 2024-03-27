@@ -223,7 +223,7 @@
                     margin:20px 0;
                 }
                 img{
-                    width:600px;
+                    width:200px;
                 }
             </style>
         </div>
