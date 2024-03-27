@@ -19,10 +19,11 @@ class BuildingController {
 
         if($request->method =="POST"){
             $validator = new Validator($request->all(), [
-                'adress' => ['required'],
+                'adress' => ['required', 'length'],
                 'photo'=>['required'],
                 ],[
                 'required' => 'Поле :field пусто',
+                'length' => 'Поле :field должно содержать строку длинее 3 символов',
             ]);
             if($validator->fails()){
                 return (new View())->render('building.add', ['posts'=>$posts,

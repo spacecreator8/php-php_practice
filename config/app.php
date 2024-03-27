@@ -17,7 +17,9 @@ return [
    'validators' => [
     'required' => \Validators\RequireValidator::class,
     'unique' => \Validators\UniqueValidator::class,
-    'number'=>\Validators\NumberValidator::class
+    'number'=>\Validators\NumberValidator::class,
+    'length'=> \Validators\StrLenValidator::class,
+    'pos'=> \Validators\PositiveNumbValidator::class,
    ],
 
 ];

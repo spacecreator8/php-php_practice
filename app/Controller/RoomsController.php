@@ -33,11 +33,12 @@ class RoomsController {
         if($request->method =="POST"){ 
             $validator = new Validator($request->all(), [
                 'name' => ['required'],
-                'area' => ['required', 'number'],
-                'places' => ['required', 'number']
+                'area' => ['required', 'number','pos'],
+                'places' => ['required', 'number', 'pos']
             ], [
                 'required' => 'Поле :field пусто',
-                'number' => 'Поле :field принимает только целые числа'
+                'number' => 'Поле :field принимает только целые числа',
+                'pos' => 'Поле :field должно быть ПОЛОЖИТЕЛЬНЫМ числом',
             ]);
             if($validator->fails()){
                 return (new View())->render('rooms.add', ['rooms'=>$rooms,
