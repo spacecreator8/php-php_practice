@@ -38,28 +38,44 @@ class BuildingController {
     }
 
     public function findImage(Request $request){
-        $posts = Building::all();
-        $real = __DIR__;
- 
-        if($request->method == 'POST'){
-            $img=Building::where('id',(int)($_POST['fimg']))->get();
-            $image = time();
-            $file = 'images/' . $image . '.jpg';
-            $image.='.jpg';
+        if($request->method =='POST'){
+            $posts = Building::all();
+            $search = mb_strtolower($_POST['fimg']);
+            $results = [];
+            $images=[];
+
+            $search = explode(' ', $search);
+            foreach($search as $srch){
+                foreach($posts as $post){
+                    $adress=mb_strtolower($post->adress);
+                    $arr = explode(' ', $adress);
+                    foreach($arr as $key => $value){
+                        if($value == $srch){
+                            array_push($results, $post);
+                            break;
+                        }
+                    } 
+                }
+            }
 
             if (!file_exists('images') || !is_dir('images')){
                 mkdir('images', 0755, true);
             }
 
-            file_put_contents($file, $img[0]->photo);
-            
+            foreach($results as $index=>$res){
+                $image = time() . $index;
+                $file = 'images/' . $image . '.jpg';
+                $image.='.jpg';
+                file_put_contents($file, $res->photo);
 
-            return (new View())->render('building.findImage', ['message'=>$_POST['fimg'],
-             'image'=>$image,
-              'real'=>$real,
+                array_push($images, $image);
+            }
 
-            ]);
+
+            return (new View())->render('building.findImage', ['objects'=>$results,
+                                                               'images'=>$images]);
+
         }
-        return (new View())->render('building.findImage', ['real'=>$real,]);
+        return (new View())->render('building.findImage', []);
     }
 }

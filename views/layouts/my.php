@@ -222,6 +222,9 @@
                 .plus_margin{
                     margin:20px 0;
                 }
+                img{
+                    width:600px;
+                }
             </style>
         </div>
     </div>
