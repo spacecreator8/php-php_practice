@@ -10,6 +10,8 @@ use Src\Request;
 use Src\Auth\Auth;
 
 use Src\Validator\Validator;
+use function Validators_pack\validation;
+
 
 
 
@@ -38,14 +40,16 @@ class Site
     {
     if ($request->method === 'POST') {
 
-        $validator = new Validator($request->all(), [
+        $validator = validation($request->all(), [
             'name' => ['required'],
             'username' => ['required', 'unique:User,username'],
             'password' => ['required']
         ], [
             'required' => 'Поле :field пусто',
             'unique' => 'Поле :field должно быть уникально'
-        ]);
+        ],
+        app()->settings->app['validators'] ?? []
+        );
 
         if($validator->fails()){
             return new View('site.signup',

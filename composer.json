@@ -15,12 +15,14 @@
         "illuminate/database": "10.x-dev",
         "illuminate/events": "10.x-dev",
         "nikic/fast-route": "2.0.x-dev",
-        "spacecreator8/collect": "dev-main"
+        "spacecreator8/collect": "dev-main",
+        "spacecreator8/validators_pack": "dev-main"
     },
     "autoload":{
     	"psr-4":{
     		"Src\\":"core/Src/",
-    		"": "app/"
+    		"": "app/",
+            "Root\\":""
     	}
     },
     "repositories": [

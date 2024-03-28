@@ -12,6 +12,9 @@ use Src\Auth\Auth;
 
 use Src\Validator\Validator;
 
+use function Validators_pack\validation;
+
+
 class RoomsController {
 
     public function overallPlaces(Request $request){
@@ -31,7 +34,7 @@ class RoomsController {
         $types=Types::all();
 
         if($request->method =="POST"){ 
-            $validator = new Validator($request->all(), [
+            $validator = validation($request->all(), [
                 'name' => ['required'],
                 'area' => ['required', 'number','pos'],
                 'places' => ['required', 'number', 'pos']
@@ -39,7 +42,9 @@ class RoomsController {
                 'required' => 'Поле :field пусто',
                 'number' => 'Поле :field принимает только целые числа',
                 'pos' => 'Поле :field должно быть ПОЛОЖИТЕЛЬНЫМ числом',
-            ]);
+            ],
+            app()->settings->app['validators'] ?? []
+            );
             if($validator->fails()){
                 return (new View())->render('rooms.add', ['rooms'=>$rooms,
                 'buildings'=>$buildings,

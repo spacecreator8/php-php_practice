@@ -15,11 +15,11 @@ return [
    ],
  
    'validators' => [
-    'required' => \Validators\RequireValidator::class,
-    'unique' => \Validators\UniqueValidator::class,
-    'number'=>\Validators\NumberValidator::class,
-    'length'=> \Validators\StrLenValidator::class,
-    'pos'=> \Validators\PositiveNumbValidator::class,
+    'required' => Validators_pack\Validators\RequireValidator::class,
+    // 'unique' => \Validators\UniqueValidator::class,
+    'number'=>Validators_pack\Validators\NumberValidator::class,
+    'length'=> Validators_pack\Validators\StrLenValidator::class,
+    'pos'=> Validators_pack\Validators\PositiveNumbValidator::class,
    ],
 
 ];

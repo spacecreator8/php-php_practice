@@ -12,19 +12,23 @@ use Src\Settings;
 use Src\Auth\Auth;
 
 use Src\Validator\Validator;
+use function Validators_pack\validation;
 
 class BuildingController {
     public function add(Request $request){
         $posts = Building::all();
 
         if($request->method =="POST"){
-            $validator = new Validator($request->all(), [
+            $validator = validation($request->all(), [
                 'adress' => ['required', 'length'],
                 'photo'=>['required'],
                 ],[
                 'required' => 'Поле :field пусто',
                 'length' => 'Поле :field должно содержать строку длинее 3 символов',
-            ]);
+                ],
+                app()->settings->app['validators'] ?? []
+            );
+
             if($validator->fails()){
                 return (new View())->render('building.add', ['posts'=>$posts,
                     'message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
